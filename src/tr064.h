@@ -23,7 +23,7 @@
 #define tr064_h
 
 #include "Arduino.h"
-#include <MD5Builder.h>
+//#include <MD5Builder.h>
 
 #if defined(ESP8266)
     //if(Serial) Serial.println(F("Version compiled for ESP8266."));
@@ -33,6 +33,10 @@
     #include <HTTPClient.h>
 #else
     //INCOMPATIBLE!
+    #include <Wire.h>
+    #include <Ethernet.h>
+    #include <HttpClient.h>
+    #include <EthernetClient.h>
 #endif
 
 #define arr_len( x )  ( sizeof( x ) / sizeof( *x ) ) ///< Gives the length of an array
