@@ -33,10 +33,9 @@
     #include <HTTPClient.h>
 #else
     //INCOMPATIBLE!
-    #include <Wire.h>
-    #include <Ethernet.h>
-    #include <HttpClient.h>
-    #include <EthernetClient.h>
+    #include "HTTPClientWrapper.h"
+    #include "md5wrapper.h"
+
 #endif
 
 #define arr_len( x )  ( sizeof( x ) / sizeof( *x ) ) ///< Gives the length of an array

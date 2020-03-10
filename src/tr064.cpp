@@ -394,8 +394,14 @@ String TR064::httpRequest(String url, String xml, String soapaction) {
 String TR064::httpRequest(String url, String xml, String soapaction, bool retry) {
     deb_println("[HTTP] prepare request to URL: http://" + _ip + ":" + _port + url, DEBUG_INFO);
     
+    #ifdef HTTPWRAPPER_H
+    HTTPClientWrapper http;
+    #else
     HttpClient http;
+    #endif
+    
     http.begin(_ip, _port, url);
+
     if (soapaction != "") {
         http.addHeader("CONTENT-TYPE", "text/xml"); //; charset=\"utf-8\"
         http.addHeader("SOAPACTION", soapaction);
